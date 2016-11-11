@@ -1,0 +1,80 @@
+CREATE TABLE instructors (
+id SERIAL NOT NULL,
+name TEXT NOT NULL,
+experience INT NOT NULL,
+website VARCHAR(50) NOT NULL
+)
+
+CREATE TABLE students (
+id SERIAL PRIMARY KEY NOT NULL,
+name TEXT NOT NULL,
+Age  INT  NOT NULL,
+Address VARCHAR (50)
+)
+
+-insert data to table
+-insert into table name values (val1, val2, val3)
+
+INSERT INTO students
+VALUES (
+ 1,
+ 'Glen Choo',
+ 26,
+ '8 Claymore Hills'
+)
+
+INSERT INTO instructors
+VALUES (
+ 2,
+ 'Jeremiah',
+ 10,
+ 'full stack web experience'
+)
+
+-find data in your database -select field name
+SELECT name FROM students
+
+
+SELECT ,field_name from <table_name>
+
+WHERE <field_name> <condition> <value>
+SELECT * FROM students
+WHERE name = "Prima"
+
+Update record in DB
+UPDATE <table_name> SET <fieldname> = <value>
+WHERE <another_fieldnam> = <value
+
+UPDATE instructors
+SET age = 25
+WHERE name = "Prima"
+
+SELECT name, address age FROM students
+WHERE age > 30
+ORDER BY name ASC
+
+SELECT name FROM students
+WHERE name LIKE 'N%'
+
+--join
+CREATE TABLE books (
+ id SERIAL PRIMARY KEY NOT NULL
+ student_id INT NOT NULL
+)
+
+SELECT *
+FROM <tablename>
+INNER JOIN  <table2>
+ON <tablename>.id = <table2>.fk
+
+ALTER TABLE books
+ADD name VARCHAR (50)
+
+UPDATE books SET name = "sth" WHERE id  > 0
+
+Example:
+SELECT students.name, parents.name, students.address
+FROM students
+INNER JOIN parents
+ON parents.id = students.parent_id
+WHERE parents.name = 'Benedict Lee'
